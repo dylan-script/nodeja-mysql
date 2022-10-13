@@ -2,8 +2,7 @@ import { pool } from "../db.js  ";
 
 export const getEmployees = async (req, res) => {
   try {
-    throw new Error('DB Error')
-    const [rows] = await pool.query('SELECT * FROM employee;')
+    const [rows] = await pool.query('SELECT * FROM employee')
     res.json(rows)
   } catch (error) {
     return res.status(500).json({
@@ -15,7 +14,6 @@ export const getEmployees = async (req, res) => {
 export const getEmployee = async (req, res) => {
   try {
     //console.log(req.params.id);
-    throw new Error('Error Inesperado...')
     const [rows] = await pool.query('SELECT * FROM employee WHERE id = ?', req.params.id)
     //console.log(rows)
 
